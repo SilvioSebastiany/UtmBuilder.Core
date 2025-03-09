@@ -4,7 +4,21 @@ namespace UtmBuilder.Core.Entity
 {
     public class Utm
     {
-        public Url Url { get; set; } = new();
-        public Campains Campains { get; set; } = new();
+         /// <summary>
+        /// URL (Website link) 
+        /// </summary>
+        public Url Url { get; }
+
+        /// <summary>
+        /// Campains Details
+        /// </summary>
+        public Campains Campains { get; }
+
+
+        public Utm(Url url, Campains campains)
+        {
+            Url = url;
+            Campains = campains;
+        }
     }
 }
