@@ -2,11 +2,10 @@ using System.Text.RegularExpressions;
 
 namespace UtmBuilder.Core.ValueObjects.Exception;
 
-public class InvalidUrlException : System.Exception
+public partial class InvalidUrlException : System.Exception
 {
 
     private const string DefaultMessage = "Invalid URL";
-    private const string UrlRegexPattern = @"^((http|ftp|https|www)://)?([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?$";
 
     public InvalidUrlException(string message = DefaultMessage) 
         : base(message) 
@@ -21,10 +20,13 @@ public class InvalidUrlException : System.Exception
             throw new InvalidUrlException(message);
         }
 
-        if(!Regex.IsMatch(address, UrlRegexPattern))
+        if(!UrlRegex().IsMatch(address))
         {
             throw new InvalidUrlException();
         }
     }
+
+    [GeneratedRegex("^((http|ftp|https|www)://)?([\\w+?\\.\\w+])+([a-zA-Z0-9\\~\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)_\\-\\=\\+\\\\\\/\\?\\.\\:\\;\\'\\,]*)?$")]
+    private static partial Regex UrlRegex();
 }
 
