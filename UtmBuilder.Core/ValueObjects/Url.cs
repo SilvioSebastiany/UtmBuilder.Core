@@ -22,7 +22,7 @@ namespace UtmBuilder.Core.ValueObjects
             
             if(Regex.IsMatch(address, UrlRegexPattern))
             {
-                throw new ArgumentException("Invalid URL");
+                throw new InvalidUrlException();
             }
         }
 
