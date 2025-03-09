@@ -1,19 +1,19 @@
 using System.Text.RegularExpressions;
 
-namespace UtmBuilder.Core.ValueObjects.Exception;
+namespace UtmBuilder.Core.ValueObjects.Exceptions;
 
-public partial class InvalidUrlException : System.Exception
+public partial class InvalidUrlException : Exception
 {
 
-    private const string DefaultMessage = "Invalid URL";
+    private const string DefaultErrorMessage = "Invalid URL";
 
-    public InvalidUrlException(string message = DefaultMessage) 
+    public InvalidUrlException(string message = DefaultErrorMessage) 
         : base(message) 
     {
          /// base(message): chama o construtor da classe base (Exception)
     }
 
-    public static void ThrowIfInvalid(string address, string message = DefaultMessage)
+    public static void ThrowIfInvalid(string address, string message = DefaultErrorMessage)
     {
         if(string.IsNullOrEmpty(address))
         {

@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using UtmBuilder.Core.ValueObjects.Exception;
+using UtmBuilder.Core.ValueObjects.Exceptions;
 namespace UtmBuilder.Core.ValueObjects
 {
     public class Url : ValueObject
