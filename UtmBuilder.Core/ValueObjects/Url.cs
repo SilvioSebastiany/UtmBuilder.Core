@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using UtmBuilder.Core.ValueObjects.Exceptions;
 namespace UtmBuilder.Core.ValueObjects
 {
@@ -21,7 +20,5 @@ namespace UtmBuilder.Core.ValueObjects
             Address = address;
             InvalidUrlException.ThrowIfInvalid(address, "Invalid URL");
         }
-
-
     }
 }
