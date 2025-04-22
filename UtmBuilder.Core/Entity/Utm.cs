@@ -22,6 +22,11 @@ namespace UtmBuilder.Core.Entity
             Campains = campains;
         }
 
+        // converte o objeto Utm para string
+        // o operador implicit permite que o objeto Utm seja convertido para string automaticamente
+        public static implicit operator string(Utm utm) => utm.ToString();
+        
+
         public override string ToString()
         {
             var segments = new List<string>();
