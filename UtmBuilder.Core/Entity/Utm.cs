@@ -26,7 +26,12 @@ namespace UtmBuilder.Core.Entity
         {
             var segments = new List<string>();
 
-            //segments.AddIfNotNullOrEmpty();
+            segments.AddIfNotNullOrEmpty("utm_source", Campains.Source);
+            segments.AddIfNotNullOrEmpty("utm_medium", Campains.Medium);
+            segments.AddIfNotNullOrEmpty("utm_campaign", Campains.Name);
+            segments.AddIfNotNullOrEmpty("utm_id", Campains.Id);
+            segments.AddIfNotNullOrEmpty("utm_term", Campains.Term);
+            segments.AddIfNotNullOrEmpty("utm_content", Campains.Content);
         
             return $"{Url.Address}?{string.Join("&", segments)}";
         }
